@@ -2,23 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
 import styled from './ImageGallery.module.css'
-import { Component } from 'react';
 
-
-
-export class ImageGallery extends Component {
-  render() {
-    const { images } = this.props;
-    return (
-      <>
-        <ul className={styled.imageGallery}>
-          {images.map(image => (
-            <ImageGalleryItem key={image.id} image={image} />
-          ))}
-        </ul>
-      </>
-    );
+export const ImageGallery = ({images}) => {
+  if (!Array.isArray(images)) {
+    return <div>No images to display.</div>;
   }
+  return (
+    <>
+      <ul className={styled.imageGallery}>
+        {images.map(image => (
+          <ImageGalleryItem key={image.id} image={image} />
+        ))}
+      </ul>
+    </>
+  )
 }
 
 ImageGallery.propTypes = {

@@ -23,8 +23,8 @@ export const ImageGalleryItem = ({ image }) => {
         <Modal largeImageURL={image.largeImageURL} onClose={handleCloseModal} />
       )}
     </>
-  );
-};
+  )
+}
 
 ImageGalleryItem.propTypes = {
   image: PropTypes.shape({
